@@ -1,3 +1,5 @@
+import "./App.scss";
+
 function App() {
   return (
     <>
@@ -15,7 +17,7 @@ function App() {
           <button>Load</button>
         </section>
       </section>
-      <footer>
+      <footer className="footer">
         <p>Save State Demo for Visual Novel</p>
         <p>Version 0.1.0</p>
         <p>Author: Poom Yimyuean (@lebrancconvas)</p>
