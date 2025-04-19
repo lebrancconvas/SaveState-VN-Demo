@@ -20,7 +20,7 @@ function App() {
       <footer className="footer">
         <p>Save State Demo for Visual Novel</p>
         <p>Version 0.1.0</p>
-        <p>Author: Poom Yimyuean (@lebrancconvas)</p>
+        <p>Author: <a href="https://github.com/lebrancconvas" target="_blank">Poom Yimyuean (@lebrancconvas)</a></p>
       </footer>
     </>
   )
