@@ -7,14 +7,14 @@ function App() {
         <h1>Save State Demo for Visual Novel</h1>
       </header>
       <section id="content">
-        Content of Visual Novel
+        <h3>Content for Visual Novel</h3>
       </section>
       <section id="control">
         <section id="save">
-          <button>Save</button>
+          <button><b>Save</b></button>
         </section>
         <section id="load">
-          <button>Load</button>
+          <button><b>Load</b></button>
         </section>
       </section>
       <footer className="footer">
