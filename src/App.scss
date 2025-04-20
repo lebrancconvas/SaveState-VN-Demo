@@ -17,7 +17,7 @@ header {
   border: 2px solid #002288;
   border-radius: 8px;
   margin: 0 auto;
-  width: 30%;
+  width: 50%;
   height: 200px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -31,6 +31,7 @@ header {
   margin: 0 auto;
   animation: textTyping 2s steps(30) forwards;
   width: 50%;
+  margin: 0 10px;
 }
 
 @keyframes textTyping {
