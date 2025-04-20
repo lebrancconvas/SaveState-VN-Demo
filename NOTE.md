@@ -18,3 +18,7 @@ Note for note some thought and knowledge gaining while doing this project or som
 - useEffect
 - useRef
 - useContext
+
+## References
+
+- [[EN: Text] State Management in React –Props vs the Context API (freeCodeCamp: David Jaja)](https://www.freecodecamp.org/news/state-management-in-react-props-vs-context-api/)
