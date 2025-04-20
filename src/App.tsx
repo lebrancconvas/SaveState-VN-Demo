@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.scss";
+import "./styles/App.scss";
 import * as content from "./assets/content/content.txt";
 
 function App() {
