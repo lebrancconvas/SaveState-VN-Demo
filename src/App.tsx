@@ -4,6 +4,8 @@ import * as content from "./assets/content/content.txt";
 
 function App() {
   const [contents, setContents] = useState<string[]>([]);
+  const [currentLine, setCurrentLine] = useState<string>("");
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -12,6 +14,7 @@ function App() {
         const text = await response.text();
         const lines = text.split("\n").map(line => line.trim().replace(/^- /, ""));
         setContents(lines);
+        setCurrentLine(lines[0]);
       } catch (error) {
         console.error("Error fetching content:", error);
       }
@@ -20,7 +23,12 @@ function App() {
   }, []);
 
   const nextContent = () => {
-    console.log("Next Content Clicked.");
+    if (currentIndex < contents.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setCurrentLine(contents[currentIndex]);
+    } else {
+      alert("Content finished.");
+    }
   }
 
   return (
@@ -29,7 +37,7 @@ function App() {
         <h1>Save State Demo for Visual Novel</h1>
       </header>
       <section id="content" onClick={nextContent}>
-        <h3 className="contentText">{contents[0]}</h3>
+        <h3 className="contentText">{currentLine}</h3>
       </section>
       <section id="control">
         <section id="save">
