@@ -7,7 +7,7 @@ function App() {
         <h1>Save State Demo for Visual Novel</h1>
       </header>
       <section id="content">
-        <h3>Content for Visual Novel</h3>
+        <h3 className="contentText">Content for Visual Novel</h3>
       </section>
       <section id="control">
         <section id="save">

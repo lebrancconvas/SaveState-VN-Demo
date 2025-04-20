@@ -11,7 +11,9 @@ header {
 }
 
 #content {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #002288;
   border-radius: 8px;
   margin: 0 auto;
@@ -22,12 +24,18 @@ header {
   cursor: pointer;
 }
 
-#content > h3 {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 50%;
-  transform: translate(-50%, -50%);
+#content > .contentText {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: textTyping 2s steps(30) forwards;
+  width: 50%;
+}
+
+@keyframes textTyping {
+  0% { width: 0 }
+  100% { width: 100% }
 }
 
 #control {
