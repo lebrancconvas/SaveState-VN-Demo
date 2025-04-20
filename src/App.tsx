@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./styles/App.scss";
 import * as content from "./assets/content/content.txt";
+
+import SaveStateContext from "./context/context";
+
+import SaveStateModal from "./components/SaveStateModal";
 
 function App() {
   const [contents, setContents] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const saveState = useContext(SaveStateContext);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -46,6 +52,9 @@ function App() {
         <section id="load">
           <button><b>Load</b></button>
         </section>
+      </section>
+      <section id="saveStateModal">
+        <SaveStateModal />
       </section>
       <footer className="footer">
         <p>Save State Demo for Visual Novel</p>
