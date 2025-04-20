@@ -3,7 +3,11 @@ import type { SaveData } from "../@types";
 import { useContext, useState } from "react";
 import SaveStateContext from "../context/context";
 
-function SaveStateModal() {
+type SaveStateModalProps = {
+  isOpen: boolean;
+}
+
+function SaveStateModal({ isOpen }: SaveStateModalProps) {
   const saveStates = useContext(SaveStateContext);
   const [saveDataCollection, setSaveDataCollection] = useState<SaveData[]>([]);
 
@@ -17,21 +21,23 @@ function SaveStateModal() {
     setSaveDataCollection([...saveStates]);
   };
 
-  return (
-    <div className="saveStateModal">
-      <div id="save-action">
-        <button onClick={save}>+ New Save</button>
+  if(isOpen) {
+    return (
+      <div className="saveStateModal">
+        <div id="save-action">
+          <button onClick={save}>+ New Save</button>
+        </div>
+        <div id="save-content">
+          {saveDataCollection.map((save) => (
+            <div className="save-item" key={save.id}>
+              <div className="save-date">{save.save_date}</div>
+              <div className="save-index">Section {save.content_index + 1}</div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div id="save-content">
-        {saveDataCollection.map((save) => (
-          <div className="save-item" key={save.id}>
-            <div className="save-date">{save.save_date}</div>
-            <div className="save-index">Section {save.content_index + 1}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
+    )
+  }
 };
 
 export default SaveStateModal;

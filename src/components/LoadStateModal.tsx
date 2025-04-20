@@ -1,13 +1,19 @@
 import "../styles/LoadStateModal.scss";
 
-function LoadStateModal() {
-  return (
-    <div className="loadStateModal">
-      <div id="load-content">
+type LoadStateModalProps = {
+  isOpen: boolean;
+};
 
+function LoadStateModal({ isOpen }: LoadStateModalProps) {
+  if(isOpen) {
+    return (
+      <div className="loadStateModal">
+        <div id="load-content">
+
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 };
 
 export default LoadStateModal;

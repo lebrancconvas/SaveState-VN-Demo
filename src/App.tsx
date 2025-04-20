@@ -5,11 +5,15 @@ import * as content from "./assets/content/content.txt";
 import SaveStateContext from "./context/context";
 
 import SaveStateModal from "./components/SaveStateModal";
+import LoadStateModal from "./components/LoadStateModal";
 
 function App() {
   const [contents, setContents] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
+  const [isLoadModalOpen, setIsLoadModalOpen] = useState<boolean>(false);
 
   const saveState = useContext(SaveStateContext);
 
@@ -37,6 +41,16 @@ function App() {
     }
   }
 
+
+  const openSaveStateModal = () => {
+    setIsSaveModalOpen(true);
+    console.log(saveState);
+  };
+
+  const openLoadStateModal = () => {
+    setIsLoadModalOpen(true);
+  };
+
   return (
     <>
       <header>
@@ -47,14 +61,17 @@ function App() {
       </section>
       <section id="control">
         <section id="save">
-          <button><b>Save</b></button>
+          <button onClick={openSaveStateModal}><b>Save</b></button>
         </section>
         <section id="load">
-          <button><b>Load</b></button>
+          <button onClick={openLoadStateModal}><b>Load</b></button>
         </section>
       </section>
       <section id="saveStateModal">
-        <SaveStateModal />
+        <SaveStateModal isOpen={isSaveModalOpen} />
+      </section>
+      <section id="loadStateModal">
+        <LoadStateModal isOpen={isLoadModalOpen} />
       </section>
       <footer className="footer">
         <p>Save State Demo for Visual Novel</p>
