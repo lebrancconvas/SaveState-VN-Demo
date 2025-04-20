@@ -3,12 +3,17 @@ type StateModalProps = {
 }
 
 function StateModal({ isSaveState }: StateModalProps) {
+  // Save Data Function
+  const saveData = () => {
+    
+  };
+
   // Save State Modal.
   if(isSaveState) {
     return (
       <div className="stateModal">
         <section id="save-control">
-          <button>+ <h2>New Save</h2></button>
+          <button onClick={saveData}>+ <h2>New Save</h2></button>
         </section>
         <section id="save-data">
 
