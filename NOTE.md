@@ -1,5 +1,9 @@
 # Note for The Project
 
+## Overview
+
+Note for note some thought and knowledge gaining while doing this project or something that should be remarked for not confusing about how they work on the next time.
+
 ## Key Takeaways
 
 ### React's Props
