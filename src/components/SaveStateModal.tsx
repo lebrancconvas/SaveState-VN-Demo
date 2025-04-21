@@ -1,6 +1,6 @@
 import "../styles/SaveStateModal.scss";
 import type { SaveData } from "../@types";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SaveStateContext from "../context/context";
 import { MAXIMUM_SAVE_SLOTS } from "../constants";
 
@@ -11,6 +11,11 @@ type SaveStateModalProps = {
 function SaveStateModal({ isOpen }: SaveStateModalProps) {
   const saveStates = useContext(SaveStateContext);
   const [saveDataCollection, setSaveDataCollection] = useState<SaveData[]>([]);
+  const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(true);
+
+  useEffect(() => {
+    setIsSaveModalOpen(isOpen);
+  }, [isOpen]);
 
   const save = () => {
     const saveDataMock: SaveData = {
@@ -26,11 +31,16 @@ function SaveStateModal({ isOpen }: SaveStateModalProps) {
     }
   };
 
-  if(isOpen) {
+  const closeModal = () => {
+    setIsSaveModalOpen(false);
+  };
+
+  if(isSaveModalOpen) {
     return (
       <div className="saveStateModal">
         <div id="save-action">
           <button onClick={save}>+ New Save</button>
+          <button onClick={closeModal}>Close</button>
         </div>
         <div id="save-content">
           {saveDataCollection.map((save) => (
