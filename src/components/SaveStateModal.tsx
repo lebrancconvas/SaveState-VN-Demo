@@ -2,6 +2,7 @@ import "../styles/SaveStateModal.scss";
 import type { SaveData } from "../@types";
 import { useContext, useState } from "react";
 import SaveStateContext from "../context/context";
+import { MAXIMUM_SAVE_SLOTS } from "../constants";
 
 type SaveStateModalProps = {
   isOpen: boolean;
@@ -17,8 +18,12 @@ function SaveStateModal({ isOpen }: SaveStateModalProps) {
       save_date: new Date().toLocaleString(),
       content_index: 0, // Mock content index
     }
-    saveStates.push(saveDataMock);
-    setSaveDataCollection([...saveStates]);
+    if(saveStates.length < MAXIMUM_SAVE_SLOTS) {
+      saveStates.push(saveDataMock);
+      setSaveDataCollection([...saveStates]);
+    } else {
+      alert("You have reached the maximum number of saves.");
+    }
   };
 
   if(isOpen) {
