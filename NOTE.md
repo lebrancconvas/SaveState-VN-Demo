@@ -18,6 +18,7 @@ Note for note some thought and knowledge gaining while doing this project or som
 - useEffect
 - useRef
 - useContext
+- useReducer
 
 ## References
 
