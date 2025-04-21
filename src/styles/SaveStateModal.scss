@@ -1,0 +1,29 @@
+.saveStateModal {
+  border: 2px solid rgb(43, 134, 245); // Debugging Style.
+  position: fixed;
+  width: 50%;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: -1px 2px 14px 10px rgba(0, 0, 0, 0.3);
+}
+
+#save-action {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-around;
+}
+
+.save-item {
+  margin: 0.5rem 0;
+}
+
+.save-item:hover {
+  cursor: pointer;
+  background-color: #0000001b;
+  opacity: 0.8;
+  z-index: 99;
+}
